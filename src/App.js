@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import {Switch, Route} from 'react-router-dom';
 import { fetchData } from './services/DataService';
 import CharactersList from './components/CharactersList';
 import Filter from './components/Filter';
 import CharacterDetail from './components/CharacterDetail';
+import './App.css';
 
 
 class App extends Component {
@@ -92,8 +93,12 @@ class App extends Component {
         </header>
 
         <main className="app__main">
-          <CharacterDetail characters={characters} characterId={1}/>
-          <CharactersList arrayFromFilter={arrayFromFilter}/>
+      
+          <Switch>
+            <Route exact path="/" render={()=><CharactersList arrayFromFilter={arrayFromFilter}/>} />
+            <Route path="/person/:id" render={props=><CharacterDetail characters={characters} characterId={1} /> }/>
+          </Switch>
+
         </main>
       </div>
     );

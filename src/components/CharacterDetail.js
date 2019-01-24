@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import GoBack from './GoBack';
 
 class CharacterDetail extends Component {
 
@@ -34,6 +35,7 @@ class CharacterDetail extends Component {
 
 
                     </div>
+                    <GoBack />
                 </div>
             );
 
