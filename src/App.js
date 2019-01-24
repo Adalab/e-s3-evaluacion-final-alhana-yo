@@ -14,9 +14,9 @@ class App extends Component {
 
     this.state = {
       query:'',
-      //characters: []
+      characters: []
       
-      characters: this.getSavedDataFromLocalStorage()
+      //characters: this.getSavedDataFromLocalStorage()
     }
     this.getUserInput = this.getUserInput.bind(this);
   }
@@ -38,9 +38,9 @@ class App extends Component {
 
   /*LOCAL STORAGE*/ 
 
-  // componentDidMount(){
-  //   this.getSavedDataFromLocalStorage();
-  // }
+  componentDidMount(){
+    this.getSavedDataFromLocalStorage();
+  }
 
   saveDataInLocalStorage(data){
     localStorage.setItem('HP_characters', JSON.stringify(data));
