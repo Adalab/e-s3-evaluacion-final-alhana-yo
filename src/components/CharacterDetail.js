@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class CharacterDetail extends Component {
+
+    hasPatronus(patronus){
+
+        return (patronus==='') ? 'Este personaje no sabe conjurar un Patronus': patronus ; 
+    }
+
+    isAlive(alive){
+
+        return alive ? 'vivo' : 'muerto';
+
+    }
+
     render() {
         const { characters, characterId } = this.props;
 
@@ -17,8 +29,8 @@ class CharacterDetail extends Component {
                         <h2 className="character__detail-name">{selectedCharacter.name}</h2>
                         <p className="character__detail-house">{selectedCharacter.house}</p>
                         <p className="character__detail-birth">{selectedCharacter.yearOfBirth}</p>
-                        {/* <p className="character__detail-patronus">{selectedCharacter.patronus}</p>
-                        <p className="character__detail-status"></p> */}
+                        <p className="character__detail-patronus">{this.hasPatronus(selectedCharacter.patronus)}</p>
+                        <p className="character__detail-status">{this.isAlive((selectedCharacter.alive))}</p>
 
 
                     </div>
