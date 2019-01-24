@@ -10,9 +10,15 @@ class App extends Component {
     super(props);
 
     this.state = {
+      query:'',
       characters: []
+      //me falla recuperar el local Storage
+      //character: this.getSavedDataFromLocalStorage()
     }
+    this.getUserInput = this.getUserInput.bind(this);
   }
+
+  /**REQUEST FOR THE */
 
   getData() {
     fetchData()
@@ -23,25 +29,69 @@ class App extends Component {
         this.setState({
           characters: dataWithId
         })
+        this.saveDataInLocalStorage(dataWithId);
       })
+  }
+
+  /*LOCAL STORAGE*/ 
+
+  componentDidMount(){
+    this.getSavedDataFromLocalStorage();
+  }
+
+  saveDataInLocalStorage(data){
+    localStorage.setItem('HP_characters', JSON.stringify(data));
+  }
+
+  getSavedDataFromLocalStorage(){
+    const savedData = localStorage.getItem('HP_characters');
+   
+    if(savedData !== null){
+      console.log('estoy dentro del if')
+      return JSON.parse(savedData);
+    }else{
+      console.log('estoy dentro del else');
+      this.getData();
+      return [];
+    }
+  }
+
+  /** FILTER */
+  getUserInput(e) {
+    const userQuery = e.currentTarget.value;
+    this.setState({
+      query: userQuery
+    });
+  }
+
+  filterData(){
+    const filteredCharacters = this.state.filter(item => {
+      if(item.name.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase())){
+        return true;
+      }else{
+        return false;
+      }
+    });
+    return filteredCharacters;
   }
 
 
   render() {
 
-    const characterArray = this.getData();
+    //const arrayFromFilter = this.filterData();
     
     return (
       <div className="App">
 
         <header className="app__header">
           <h1 className="app__title">Harry Potter characters </h1>
-          {/* <div className="app__input">
+          <div className="app__input">
             <div className="app__filter-itm">
               <input type="text" className="app__filter-full-name" placeholder="Busca a los culpables" onKeyUp={this.getUserInput}/>
             </div>
-          </div> */}
+          </div>
         </header>
+
         <main className="app__main">
           <ul className="app__list">
             {this.state.characters.map(item => {
