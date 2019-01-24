@@ -82,8 +82,9 @@ class App extends Component {
 
     const arrayFromFilter = this.filterData();
     const {characters} = this.state;
-    
+
     return (
+      
       <div className="App">
         <header className="app__header">
           <h1 className="app__title">Harry Potter characters </h1>
@@ -91,8 +92,8 @@ class App extends Component {
         </header>
 
         <main className="app__main">
-          {/* <CharacterDetail charactersArray = {characters} characterId={1}/> */}
-          <CharactersList arrayFromFilter = {arrayFromFilter}/>
+          <CharacterDetail characters={characters} characterId={1}/>
+          <CharactersList arrayFromFilter={arrayFromFilter}/>
         </main>
       </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class CharacterCard extends Component {
+class CharacterDetail extends Component {
     render() {
         const { characters, characterId } = this.props;
 
@@ -29,9 +29,9 @@ class CharacterCard extends Component {
     }
 }
 
-CharacterCard.propTypes = {
-    characters: PropTypes.object,
+CharacterDetail.propTypes = {
+    characters: PropTypes.array,
     characterId: PropTypes.number
 }
 
-export default CharacterCard;
+export default CharacterDetail;
