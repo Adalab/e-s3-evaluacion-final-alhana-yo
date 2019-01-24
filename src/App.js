@@ -89,14 +89,17 @@ class App extends Component {
       <div className="App">
         <header className="app__header">
           <h1 className="app__title">Harry Potter characters </h1>
-          <Filter actionGetUserInput={this.getUserInput}/>
+          <Switch>
+            <Route exact path="/" render={()=><Filter actionGetUserInput={this.getUserInput}/>}/>
+
+          </Switch>
         </header>
 
         <main className="app__main">
       
           <Switch>
             <Route exact path="/" render={()=><CharactersList arrayFromFilter={arrayFromFilter}/>} />
-            <Route path="/person/:id" render={props=><CharacterDetail characters={characters} characterId={1} /> }/>
+            <Route path="/character/:id" render={props=><CharacterDetail match={props.match} characters={characters} /> }/>
           </Switch>
 
         </main>

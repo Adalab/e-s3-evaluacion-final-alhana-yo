@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GoBack from './GoBack';
+import NoData from './NoData';
 
 class CharacterDetail extends Component {
 
     hasPatronus(patronus){
 
-        return (patronus==='') ? 'Este personaje no sabe conjurar un Patronus': patronus ; 
+        return (patronus==='') ? 'No conocemos el Patronus que conjura este personaje': patronus ; 
     }
 
     isAlive(alive){
@@ -16,10 +17,11 @@ class CharacterDetail extends Component {
     }
 
     render() {
-        const { characters, characterId } = this.props;
+        const { characters } = this.props;
+        const characterId = this.props.match.params.id;
 
         if (characters.length === 0 || characterId >= characters.length) {
-            return <p>No hay datos para esa busqueda</p>
+            return <NoData/>
 
         } else {
             const selectedCharacter = characters[characterId];
@@ -45,7 +47,7 @@ class CharacterDetail extends Component {
 
 CharacterDetail.propTypes = {
     characters: PropTypes.array,
-    characterId: PropTypes.number
+    match: PropTypes.object
 }
 
 export default CharacterDetail;

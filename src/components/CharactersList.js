@@ -10,7 +10,7 @@ class CharactersList extends Component {
                 {this.props.arrayFromFilter.map(item => {
                     return (
                         <li className="app__list-item" id={item.id} key={item.id} >
-                            <Link className="app__list-link" to={`/person/${item.id}`}>
+                            <Link className="app__list-link" to={`/character/${item.id}`}>
                                 <CharacterCard character={item} />
                             </Link>
                         </li>
