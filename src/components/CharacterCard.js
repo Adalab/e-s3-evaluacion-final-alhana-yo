@@ -13,13 +13,12 @@ class CharacterCard extends Component {
                     <p className="character__house">{character.house}</p>
                 </div>
             </div>
-
         );
     }
 }
 
 CharacterCard.propTypes = {
-    arrayFromFilter: PropTypes.object
+    character: PropTypes.object.isRequired
 }
 
 export default CharacterCard;

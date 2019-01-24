@@ -6,14 +6,11 @@ import NoData from './NoData';
 class CharacterDetail extends Component {
 
     hasPatronus(patronus){
-
         return (patronus==='') ? 'No conocemos el Patronus que conjura este personaje': patronus ; 
     }
 
     isAlive(alive){
-
         return alive ? 'vivo' : 'muerto';
-
     }
 
     render() {
@@ -46,8 +43,8 @@ class CharacterDetail extends Component {
 }
 
 CharacterDetail.propTypes = {
-    characters: PropTypes.array,
-    match: PropTypes.object
+    characters: PropTypes.array.isRequired,
+    match: PropTypes.object.isRequired
 }
 
 export default CharacterDetail;

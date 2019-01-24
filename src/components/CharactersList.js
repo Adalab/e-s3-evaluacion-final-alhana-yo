@@ -22,7 +22,7 @@ class CharactersList extends Component {
 }
 
 CharactersList.propTypes = {
-    arrayFromFilter: PropTypes.array
+    arrayFromFilter: PropTypes.array.isRequired
 }
 
 export default CharactersList;
