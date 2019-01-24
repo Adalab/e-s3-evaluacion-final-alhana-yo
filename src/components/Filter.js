@@ -3,20 +3,18 @@ import PropTypes from 'prop-types';
 
 class Filter extends Component {
     render() {
-        const {character} = this.props
         return (
             <div className="app__input">
             <div className="app__filter-itm">
               <input type="text" className="app__filter-full-name" placeholder="Busca a los culpables" onKeyUp={this.props.actionGetUserInput}/>
             </div>
           </div>
-
         );
     }
 }
 
 Filter.propTypes = {
-    arrayFromFilter: PropTypes.object
+    arrayFromFilter: PropTypes.func
 }
 
 export default Filter;

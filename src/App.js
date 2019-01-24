@@ -3,6 +3,7 @@ import './App.css';
 import { fetchData } from './services/DataService';
 import CharactersList from './components/CharactersList';
 import Filter from './components/Filter';
+import CharacterDetail from './components/CharacterDetail';
 
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
       query:'',
       //characters: []
       
-      character: this.getSavedDataFromLocalStorage()
+      characters: this.getSavedDataFromLocalStorage()
     }
     this.getUserInput = this.getUserInput.bind(this);
   }
@@ -66,7 +67,7 @@ class App extends Component {
   }
 
   filterData(){
-    const filteredCharacters = this.state.character.filter(item => {
+    const filteredCharacters = this.state.characters.filter(item => {
       if(item.name.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase())){
         return true;
       }else{
@@ -80,6 +81,7 @@ class App extends Component {
   render() {
 
     const arrayFromFilter = this.filterData();
+    const {characters} = this.state;
     
     return (
       <div className="App">
@@ -89,9 +91,8 @@ class App extends Component {
         </header>
 
         <main className="app__main">
+          {/* <CharacterDetail charactersArray = {characters} characterId={1}/> */}
           <CharactersList arrayFromFilter = {arrayFromFilter}/>
-          
-          
         </main>
       </div>
     );
