@@ -15,7 +15,6 @@ class App extends Component {
     this.state = {
       query:'',
       characters: []
-      
       //characters: this.getSavedDataFromLocalStorage()
     }
     this.getUserInput = this.getUserInput.bind(this);
@@ -39,6 +38,7 @@ class App extends Component {
   /*LOCAL STORAGE*/ 
 
   componentDidMount(){
+    console.log('en la funcion didmount');
     this.getSavedDataFromLocalStorage();
   }
 
@@ -50,12 +50,15 @@ class App extends Component {
     const savedData = localStorage.getItem('HP_characters');
    
     if(savedData !== null){
-      console.log('estoy dentro del if')
-      return JSON.parse(savedData);
+      console.log('estoy dentro del if, y recupero la info del LS');
+      this.setState({
+        characters: JSON.parse(savedData)
+      });
+      //return JSON.parse(savedData);
     }else{
-      console.log('estoy dentro del else');
+      console.log('estoy dentro del else,y hago la peticion al server');
       this.getData();
-      return [];
+      //return [];
     }
   }
 
