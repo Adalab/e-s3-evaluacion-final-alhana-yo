@@ -11,9 +11,9 @@ class App extends Component {
 
     this.state = {
       query:'',
-      characters: []
+      //characters: []
       //me falla recuperar el local Storage
-      //character: this.getSavedDataFromLocalStorage()
+      character: this.getSavedDataFromLocalStorage()
     }
     this.getUserInput = this.getUserInput.bind(this);
   }
@@ -35,9 +35,9 @@ class App extends Component {
 
   /*LOCAL STORAGE*/ 
 
-  componentDidMount(){
-    this.getSavedDataFromLocalStorage();
-  }
+  // componentDidMount(){
+  //   this.getSavedDataFromLocalStorage();
+  // }
 
   saveDataInLocalStorage(data){
     localStorage.setItem('HP_characters', JSON.stringify(data));
@@ -65,7 +65,7 @@ class App extends Component {
   }
 
   filterData(){
-    const filteredCharacters = this.state.filter(item => {
+    const filteredCharacters = this.state.character.filter(item => {
       if(item.name.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase())){
         return true;
       }else{
@@ -78,7 +78,8 @@ class App extends Component {
 
   render() {
 
-    //const arrayFromFilter = this.filterData();
+    const arrayFromFilter = this.filterData();
+    console.log(arrayFromFilter);
     
     return (
       <div className="App">
@@ -94,7 +95,7 @@ class App extends Component {
 
         <main className="app__main">
           <ul className="app__list">
-            {this.state.characters.map(item => {
+            {arrayFromFilter.map(item => {
               return (
                 <li className="app__list-item" id={item.id} key={item.id} >
                   <div className="character">
