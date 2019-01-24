@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { fetchData } from './services/DataService';
 
-
-const ENDPOINT = 'http://hp-api.herokuapp.com/api/characters';
 
 
 class App extends Component {
@@ -16,14 +15,12 @@ class App extends Component {
   }
 
   getData(){
-    fetch(ENDPOINT)
-      .then(response => response.json())
+    fetchData()
       .then(data => {
         this.setState({
           characters: data
         });
       });
-
   }
 
   render() {
