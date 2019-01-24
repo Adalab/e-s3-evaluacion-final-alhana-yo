@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query:'',
+      filterData: [],
       characters: []
     }
     this.getUserInput = this.getUserInput.bind(this);
@@ -27,7 +27,8 @@ class App extends Component {
           return { ...item, id: index }
         });
         this.setState({
-          characters: dataWithId
+          characters: dataWithId,
+          filterData: dataWithId
         })
         this.saveDataInLocalStorage(dataWithId);
       })
@@ -48,7 +49,8 @@ class App extends Component {
    
     if(savedData !== null){
       this.setState({
-        characters: JSON.parse(savedData)
+        characters: JSON.parse(savedData),
+        filterData: JSON.parse(savedData)
       });
     }else{
       this.getData();
@@ -59,14 +61,17 @@ class App extends Component {
   
   getUserInput(e) {
     const userQuery = e.currentTarget.value;
+    // this.setState({
+    //   query: userQuery
+    // });
     this.setState({
-      query: userQuery
+      filterData: this.filterData(userQuery)
     });
   }
 
-  filterData(){
+  filterData(query){
     const filteredCharacters = this.state.characters.filter(item => {
-      if(item.name.toLocaleLowerCase().includes(this.state.query.toLocaleLowerCase())){
+      if(item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())){
         return true;
       }else{
         return false;
@@ -78,7 +83,7 @@ class App extends Component {
 
   render() {
 
-    const arrayFromFilter = this.filterData();
+    const {filterData} = this.state;
     const {characters} = this.state;
 
     return (
@@ -95,7 +100,7 @@ class App extends Component {
         <main className="app__main">
       
           <Switch>
-            <Route exact path="/" render={()=><CharactersList arrayFromFilter={arrayFromFilter}/>} />
+            <Route exact path="/" render={()=><CharactersList arrayFromFilter={filterData}/>} />
             <Route path="/character/:id" render={props=><CharacterDetail match={props.match} characters={characters} /> }/>
           </Switch>
 
