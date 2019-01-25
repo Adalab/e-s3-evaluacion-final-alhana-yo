@@ -1,0 +1,26 @@
+.character {
+    text-align: center;
+}
+
+.character__image{
+
+   height: 25em;
+    width: 19em;
+     /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; */
+
+  object-fit: cover;
+  object-position: 5px 10%;
+
+}
+
+.character__name{
+    
+
+}
+
+.character__house{
+    
+
+}

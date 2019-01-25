@@ -1,0 +1,27 @@
+.character__detail{
+    padding-top: 10px;
+}
+
+.character__detail-image{
+    height: 300px;
+    display: block;
+
+}
+
+.status, .house {
+    
+}
+.house__img, .status__alive, .status__death {
+    height: 100px;
+    width: 100px;
+}
+
+
+
+@media all and (min-width: 1200px) {
+    .character__detail-wrapper{
+        display: flex;
+    }
+    
+
+}
