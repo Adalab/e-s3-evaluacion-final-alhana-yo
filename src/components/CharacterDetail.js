@@ -19,8 +19,6 @@ class CharacterDetail extends Component {
 
     isAlive(alive) {
         return alive ? <div className="status"><span className="status__name">Vivo</span><img className="status__alive" src={laugh} alt="status vivo" /></div> : <div className="status"><span className="status__death">Muerto</span><img className="status__death" src={coffin} alt="status muerto" /></div>;
-        //<span role="img" aria-label="alive">🤯</span>
-
     }
     getHouse(house) {
 
@@ -37,9 +35,7 @@ class CharacterDetail extends Component {
             return <div className="house"><span className="house">{house}</span><img className="house__img" src={badger} alt={house} /></div>
         } else {
             return 'no tiene casa'
-
         }
-
     }
 
     render() {

@@ -21,10 +21,10 @@
 }
 
 
+
 /* DESKTOP */
 
-@media all and (min-width: 768px) {
-
+@media all and (min-width: 1200px) {
     .app__go-back-button{
         width: 18em;
         height: 6em;
@@ -34,10 +34,4 @@
         line-height: 3em; 
         font-size: 2em;
     }
-}
-
-
-/* DESKTOP */
-
-@media all and (min-width: 1200px) {
 }
