@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+
+
 class CharacterCard extends Component {
+
     render() {
         const {character} = this.props
         return (
