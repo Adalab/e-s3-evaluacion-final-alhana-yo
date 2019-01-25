@@ -1,5 +1,14 @@
 .character__detail{
     padding-top: 10px;
+    margin: 0 auto;
+    width: 14.07em;
+   color: #F2C0B6;
+}
+
+.character__detail-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .character__detail-image{
@@ -7,21 +16,78 @@
     display: block;
 
 }
+.character__detail-house,.character__detail-birth, .character__detail-patronus, .character__detail-status {
+    align-self: flex-start;
+    margin: 0.5em 0 0.5em 2em;
+} 
+
 
 .status, .house {
+    display: flex;
+    align-items: base;
     
 }
 .house__img, .status__alive, .status__death {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
 }
 
+.house__name, .status__name{
+    margin: 1em 1em 0 0;
+}
 
+/* TABLET */
 
-@media all and (min-width: 1200px) {
+@media all and (min-width: 768px) {
+    .character__detail{
+        padding-left: 1em;
+        width: 28em;
+        background-color: #665855;
+    }
+
     .character__detail-wrapper{
         display: flex;
     }
+
+    .character__detail-info{
+        padding-left: 1em;
+
+    }
     
+
+}
+
+/* DESKTOP */
+
+@media all and (min-width: 1200px) {
+    .character__detail{
+
+        width: 54em;
+    }
+
+    .character__detail-image {
+        height: 500px;
+        width: 350px;
+        display: block;
+    }
+
+    .character__detail-name{
+        font-size: 3em;
+        margin: 0.5em 0 0.5em 1.3em;
+    }
+
+    .character__detail-house,.character__detail-birth, .character__detail-patronus, .character__detail-status {
+
+        font-size: 2em;
+    }
+
+    .house__img, .status__alive, .status__death {
+        height: 70px;
+        width: 70px;
+    }
+
+    .house__name, .status__name {
+        margin: 0.5em 0.5em 0 0;
+    }
 
 }

@@ -1,0 +1,43 @@
+/* MOBILE */
+
+.app__go-back-link{
+    text-decoration: none;
+}
+
+.app__go-back-button{
+    width: 9em;
+    height: 3em;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: #F2C0B6;
+    margin: 1em auto;
+}
+
+.app__go-back-text{
+    margin: 0;
+    text-align: center;
+    line-height: 3em;
+
+}
+
+
+/* DESKTOP */
+
+@media all and (min-width: 768px) {
+
+    .app__go-back-button{
+        width: 18em;
+        height: 6em;
+    }
+
+    .app__go-back-text{
+        line-height: 3em; 
+        font-size: 2em;
+    }
+}
+
+
+/* DESKTOP */
+
+@media all and (min-width: 1200px) {
+}
