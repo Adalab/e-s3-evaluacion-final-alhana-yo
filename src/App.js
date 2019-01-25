@@ -4,7 +4,7 @@ import { fetchData } from './services/DataService';
 import CharactersList from './components/CharactersList';
 import Filter from './components/Filter';
 import CharacterDetail from './components/CharacterDetail';
-import './App.css';
+import './scss/App.scss';
 
 
 class App extends Component {

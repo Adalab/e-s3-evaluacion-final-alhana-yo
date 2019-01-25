@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './characterCard.css';
+import '../scss/components/characterCard.scss';
 
 
 class CharacterCard extends Component {

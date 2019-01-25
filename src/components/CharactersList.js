@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import CharacterCard from './CharacterCard';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './characterList.css';
+import '../scss/components/characterList.scss';
+
 
 
 class CharactersList extends Component {

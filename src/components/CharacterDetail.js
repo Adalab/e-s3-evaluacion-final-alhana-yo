@@ -8,7 +8,7 @@ import lion from '../icons/lion.svg';
 import snake from '../icons/snake.svg';
 import crow from '../icons/crow.svg';
 import badger from '../icons/badger.svg';
-import './characterDetail.css';
+import '../scss/components/characterDetail.scss';
 
 
 class CharacterDetail extends Component {
