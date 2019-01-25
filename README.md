@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About the project
+
+In this app, you can list characters from the Harry Potter World. At the top of the page, you have a field where you can write a name or letters, and it filters you the results that include that name/letters.
+
+If you click on a character you can access detailed information, and you have a button for going back to the list.
+
 ## Available Scripts
 
 In the project directory, you can run:
